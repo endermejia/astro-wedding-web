@@ -111,7 +111,7 @@ export const HeroSection: React.FC = () => {
       </motion.div>
 
       {/* Main Editorial Centerpiece + Integrated Live Countdown */}
-      <div className="relative z-10 flex flex-col items-center text-center max-w-2xl mx-auto my-auto py-4">
+      <div className="relative z-20 flex flex-col items-center text-center max-w-2xl mx-auto my-auto py-4">
         {/* Subtle Decorative Snitch Line-Art Ornament */}
         <div aria-hidden="true" className="mb-3 text-[#C59B57]/85 float-slow">
           <GoldenSnitchSvg className="w-10 h-7 mx-auto" />
@@ -201,7 +201,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.65 }}
-          className="relative mt-5 flex flex-col items-center"
+          className="relative z-30 mt-5 flex flex-col items-center"
         >
           <button
             type="button"

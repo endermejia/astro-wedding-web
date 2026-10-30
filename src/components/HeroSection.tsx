@@ -225,7 +225,7 @@ export const HeroSection: React.FC = () => {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -6, scale: 0.97 }}
                 transition={{ duration: 0.18 }}
-                className="mt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-[#FCF8F0] border border-[#555B2F]/35 p-2 shadow-[0_14px_30px_-10px_rgba(44,48,24,0.25)] z-20"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-[#FCF8F0] border border-[#555B2F]/35 p-2 shadow-[0_14px_30px_-10px_rgba(44,48,24,0.28)] z-30"
               >
                 <a
                   href={googleCalendarUrl}

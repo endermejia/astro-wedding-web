@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, CalendarPlus, Download } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, CalendarPlus, Download, ExternalLink } from 'lucide-react';
 import { useI18n } from '../i18n/I18nContext';
 import { useCountdown } from '../hooks/useCountdown';
 import { buildGoogleCalendarUrl, downloadIcsFile } from '../utils/calendar';
@@ -19,6 +19,31 @@ export const HeroSection: React.FC = () => {
   const { t } = useI18n();
   const countdown = useCountdown();
   const googleCalendarUrl = buildGoogleCalendarUrl('full', t.calendar.full);
+  const [calendarMenuOpen, setCalendarMenuOpen] = useState(false);
+  const calendarMenuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!calendarMenuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (calendarMenuRef.current && !calendarMenuRef.current.contains(e.target as Node)) {
+        setCalendarMenuOpen(false);
+      }
+    };
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setCalendarMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [calendarMenuOpen]);
 
   const scrollToNext = () => {
     const el = document.getElementById('historia');
@@ -170,31 +195,63 @@ export const HeroSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Calendar Action Buttons */}
+        {/* Single "Add to Calendar" Button with Expandable Options */}
         <motion.div
+          ref={calendarMenuRef}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.65 }}
-          className="mt-5 flex flex-wrap items-center justify-center gap-2.5"
+          className="relative mt-5 flex flex-col items-center"
         >
-          <a
-            href={googleCalendarUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-fresco-olive !py-2.5 !px-4 !text-[10px]"
-          >
-            <CalendarPlus className="w-3.5 h-3.5 text-[#C59B57]" />
-            <span>{t.hero.ctaGoogleCalendar}</span>
-          </a>
-
           <button
             type="button"
-            onClick={() => downloadIcsFile('full', t.calendar.full)}
-            className="btn-fresco-outline !py-2.5 !px-4 !text-[10px]"
+            onClick={() => setCalendarMenuOpen((prev) => !prev)}
+            aria-expanded={calendarMenuOpen}
+            className="btn-fresco-olive !py-2.5 !px-5 !text-[10px]"
           >
-            <Download className="w-3.5 h-3.5" />
-            <span>{t.hero.ctaIcsDownload}</span>
+            <CalendarPlus className="w-3.5 h-3.5 text-[#C59B57]" />
+            <span>{t.hero.ctaAddToCalendar}</span>
+            <ChevronDown
+              className={`w-3.5 h-3.5 text-[#FCF8F0]/80 transition-transform duration-200 ${
+                calendarMenuOpen ? 'rotate-180' : ''
+              }`}
+            />
           </button>
+
+          <AnimatePresence>
+            {calendarMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                transition={{ duration: 0.18 }}
+                className="mt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-[#FCF8F0] border border-[#555B2F]/35 p-2 shadow-[0_14px_30px_-10px_rgba(44,48,24,0.25)] z-20"
+              >
+                <a
+                  href={googleCalendarUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setCalendarMenuOpen(false)}
+                  className="btn-fresco-outline !py-2 !px-3.5 !text-[10px] whitespace-nowrap"
+                >
+                  <ExternalLink className="w-3.5 h-3.5 text-[#B86B4B]" />
+                  <span>{t.hero.ctaGoogleCalendar}</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    downloadIcsFile('full', t.calendar.full);
+                    setCalendarMenuOpen(false);
+                  }}
+                  className="btn-fresco-outline !py-2 !px-3.5 !text-[10px] whitespace-nowrap"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#555B2F]" />
+                  <span>{t.hero.ctaIcsDownload}</span>
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
 

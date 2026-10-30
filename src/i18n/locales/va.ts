@@ -74,8 +74,9 @@ export const va: Translations = {
       minutes: 'Min',
       seconds: 'Seg',
     },
-    ctaGoogleCalendar: 'Guardar en Google Calendar',
-    ctaIcsDownload: 'Descarregar .ics',
+    ctaAddToCalendar: 'Afegir al calendari',
+    ctaGoogleCalendar: 'Google Calendar',
+    ctaIcsDownload: 'Apple / Outlook (.ics)',
     scrollDownAria: 'Desplaçar-se cap avall',
   },
 

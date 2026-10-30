@@ -77,6 +77,7 @@ export interface HeroTranslations {
   eyebrow: string;
   invitationIntro: string;
   units: CountdownUnits;
+  ctaAddToCalendar: string;
   ctaGoogleCalendar: string;
   ctaIcsDownload: string;
   scrollDownAria: string;

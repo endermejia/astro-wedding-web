@@ -66,7 +66,6 @@ export const va: Translations = {
   },
 
   hero: {
-    eyebrow: 'Ens casem!',
     invitationIntro: 'Volem compartir amb vosaltres este dia tan especial',
     units: {
       days: 'Dies',

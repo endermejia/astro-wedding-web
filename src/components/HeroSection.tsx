@@ -91,25 +91,6 @@ export const HeroSection: React.FC = () => {
         <div className="absolute inset-1.5 border border-[#C59B57]/25" />
       </div>
 
-      {/* Top Monogram */}
-      <motion.div
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, delay: 0.1 }}
-        className="relative z-10 flex flex-col items-center text-center pt-2"
-      >
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 sm:w-12 bg-[#555B2F]/35" />
-          <span className="font-display text-2xl md:text-3xl tracking-[0.2em] text-[#555B2F]">
-            {t.couple.monogram}
-          </span>
-          <span className="h-px w-8 sm:w-12 bg-[#555B2F]/35" />
-        </div>
-        <p className="font-sans-label text-[10px] md:text-[11px] tracking-[0.32em] uppercase text-[#555B2F]/70 mt-2">
-          {t.hero.eyebrow}
-        </p>
-      </motion.div>
-
       {/* Main Editorial Centerpiece + Integrated Live Countdown */}
       <div className="relative z-20 flex flex-col items-center text-center max-w-2xl mx-auto my-auto py-4">
         {/* Subtle Decorative Snitch Line-Art Ornament */}

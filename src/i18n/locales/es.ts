@@ -66,7 +66,6 @@ export const es: Translations = {
   },
 
   hero: {
-    eyebrow: '¡Nos casamos!',
     invitationIntro: 'Queremos compartir con vosotros este día tan especial',
     units: {
       days: 'Días',

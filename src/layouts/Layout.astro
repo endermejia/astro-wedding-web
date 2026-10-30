@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import { DEFAULT_LOCALE, getTranslations, WEDDING_CONFIG, type Locale } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+  title?: string;
+  description?: string;
+}
+
+const { locale = DEFAULT_LOCALE, title, description } = Astro.props;
+const t = getTranslations(locale);
+
+const resolvedTitle = title ?? t.meta.title;
+const resolvedDescription = description ?? t.meta.description;
+---
+
+<!doctype html>
+<html lang={t.htmlLang} class="light" translate="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
+    <meta name="theme-color" content="#FCF8F0" />
+
+    <title>{resolvedTitle}</title>
+    <meta name="description" content={resolvedDescription} />
+    <meta name="author" content={t.meta.author} />
+
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="es" href="/" />
+    <link rel="alternate" hreflang="ca-valencia" href="/va" />
+
+    <!-- OpenGraph / WhatsApp Share Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={t.ogLocale} />
+    <meta property="og:title" content={resolvedTitle} />
+    <meta property="og:description" content={resolvedDescription} />
+    <meta property="og:image" content={WEDDING_CONFIG.images.oliveTreeStory} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={resolvedTitle} />
+    <meta name="twitter:description" content={resolvedDescription} />
+    <meta name="twitter:image" content={WEDDING_CONFIG.images.oliveTreeStory} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts matching Fresco Editorial Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600&family=Reenie+Beanie&display=swap"
+    />
+  </head>
+  <body class="antialiased selection:bg-[#555B2F] selection:text-[#FCF8F0]">
+    <slot />
+  </body>
+</html>

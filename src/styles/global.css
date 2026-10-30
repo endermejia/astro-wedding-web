@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+:root {
+  --bg-ivory: #fcf8f0;
+  --bg-cream: #f5efe2;
+  --bg-sand: #ede3cf;
+  --olive: #555b2f;
+  --olive-dark: #3b401e;
+  --olive-light: #747b47;
+  --terracotta: #b86b4b;
+  --gold: #c59b57;
+  --rose-beat: #dc798b;
+  --ink: #3d4122;
+
+  --font-display: 'Antic Didone', 'Cormorant Garamond', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-hand: 'Reenie Beanie', cursive;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light only;
+  background-color: var(--bg-ivory);
+  color: var(--olive);
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-ivory);
+  color: var(--olive);
+  font-family: var(--font-editorial);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='0.045' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 220px;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.font-sans-label {
+  font-family: var(--font-sans);
+}
+
+/* Custom Fresco Buttons */
+.btn-fresco-olive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  border: 1px solid var(--olive);
+  background-color: var(--olive);
+  color: var(--bg-ivory);
+  padding: 0.875rem 1.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-fresco-olive:hover {
+  background-color: var(--olive-dark);
+  border-color: var(--olive-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -8px rgba(85, 91, 47, 0.35);
+}
+
+.btn-fresco-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  border: 1px solid rgba(85, 91, 47, 0.55);
+  background-color: rgba(252, 248, 240, 0.75);
+  color: var(--olive);
+  padding: 0.8rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-fresco-outline:hover {
+  background-color: var(--olive);
+  color: var(--bg-ivory);
+  border-color: var(--olive);
+}
+
+.btn-fresco-on-olive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  border: 1px solid rgba(252, 248, 240, 0.7);
+  background-color: transparent;
+  color: var(--bg-ivory);
+  padding: 0.85rem 1.65rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-fresco-on-olive:hover {
+  background-color: var(--bg-ivory);
+  color: var(--olive);
+  border-color: var(--bg-ivory);
+}
+
+/* Falling Petals & Gentle Breathing Animations */
+@keyframes petalFall {
+  0% {
+    transform: translateY(-10%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(1100%) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petalSway {
+  0%, 100% {
+    transform: translateX(0px) rotate(-6deg);
+  }
+  50% {
+    transform: translateX(18px) rotate(12deg);
+  }
+}
+
+@keyframes leafBreathe {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.8deg) scale(1.025);
+  }
+}
+
+@keyframes heartBeatPulse {
+  0%, 100% {
+    transform: scale(1);
+    color: var(--olive);
+  }
+  40% {
+    transform: scale(1.28);
+    color: var(--rose-beat);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.petal-fall {
+  animation: petalFall linear infinite;
+}
+
+.petal-sway {
+  animation: petalSway ease-in-out infinite;
+}
+
+.leaf-breathe {
+  animation: leafBreathe 5.5s ease-in-out infinite;
+}
+
+.heart-pulse {
+  animation: heartBeatPulse 2.4s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* Seamless blending of illustrations on #FCF8F0 paper background */
+.blend-fresco {
+  mix-blend-mode: multiply;
+}

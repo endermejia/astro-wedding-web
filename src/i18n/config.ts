@@ -12,8 +12,15 @@ export const WEDDING_CONFIG = {
   music: {
     sources: [{ src: '/audio/enya-may-it-be.m4a', type: 'audio/mp4' }] as const,
   },
-  images: {
-    oliveTreeStory: '/images/olive-tree-story.png',
+  storyBorders: {
+    hatTopLeft: '/images/borders/hat-top-left.png',
+    snitchTopRight: '/images/borders/snitch-top-right.png',
+    treeMidLeft: '/images/borders/tree-mid-left.png',
+    donutMidRight: '/images/borders/donut-mid-right.png',
+    ringLowLeft: '/images/borders/ring-low-left.png',
+    deathstarLowRight: '/images/borders/deathstar-low-right.png',
+    booksBottomLeft: '/images/borders/books-bottom-left.png',
+    suitcaseBottomRight: '/images/borders/suitcase-bottom-right.png',
   },
   venues: {
     ceremonia: {

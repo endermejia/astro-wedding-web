@@ -83,11 +83,23 @@ export interface HeroTranslations {
   scrollDownAria: string;
 }
 
+export interface StoryBorderAlts {
+  hatTopLeft: string;
+  snitchTopRight: string;
+  treeMidLeft: string;
+  donutMidRight: string;
+  ringLowLeft: string;
+  deathstarLowRight: string;
+  booksBottomLeft: string;
+  suitcaseBottomRight: string;
+}
+
 export interface StorySectionTranslations {
   eyebrow: string;
   welcomeHeading: string;
   paragraphs: readonly [string, string, string];
-  illustrationAlt: string;
+  closingTagline: string;
+  borderAlts: StoryBorderAlts;
 }
 
 export interface VenueItemTranslations {

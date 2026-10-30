@@ -88,7 +88,17 @@ export const va: Translations = {
       'Entre rialles, somnis i uns quants miols a casa, hem construït la nostra pròpia història… i ara volem celebrar-la amb les persones que fan que el nostre món siga encara més especial.',
       'Tota gran aventura necessita una tripulació. Gràcies per formar part de la nostra.',
     ],
-    illustrationAlt: "Il·lustració d'una olivera mediterrània al capvespre",
+    closingTagline: 'Distints camins, la mateixa direcció.',
+    borderAlts: {
+      hatTopLeft: "Il·lustració de capell de palla entre rames d'olivera",
+      snitchTopRight: "Il·lustració de snitch daurada entre rames d'olivera",
+      treeMidLeft: "Il·lustració d'olivera amb fotografies polaroid i càmera retro",
+      donutMidRight: "Il·lustració de rosquilla rosa entre rames d'olivera",
+      ringLowLeft: "Il·lustració de l'Anell Únic, notes musicals i rames d'olivera",
+      deathstarLowRight: "Il·lustració de l'Estrela de la Mort i caça estel·lar entre rames d'olivera",
+      booksBottomLeft: "Il·lustració de pila de llibres d'aventures i caragoles de mar",
+      suitcaseBottomRight: 'Il·lustració de maleta de viatge vintage i brúixola amb petjada felina',
+    },
   },
 
   venues: {

@@ -88,7 +88,17 @@ export const es: Translations = {
       'Entre risas, sueños y unos cuantos maullidos en casa, hemos construido nuestra propia historia… y ahora queremos celebrarla con las personas que hacen que nuestro mundo sea aún más especial.',
       'Toda gran aventura necesita una tripulación. Gracias por formar parte de la nuestra.',
     ],
-    illustrationAlt: 'Ilustración de un olivo mediterráneo al atardecer',
+    closingTagline: 'Distintos caminos, la misma dirección.',
+    borderAlts: {
+      hatTopLeft: 'Ilustración de sombrero de paja entre ramas de olivo',
+      snitchTopRight: 'Ilustración de snitch dorada entre ramas de olivo',
+      treeMidLeft: 'Ilustración de olivo con fotografías polaroid y cámara retro',
+      donutMidRight: 'Ilustración de rosquilla rosa entre ramas de olivo',
+      ringLowLeft: 'Ilustración del Anillo Único, notas musicales y ramas de olivo',
+      deathstarLowRight: 'Ilustración de la Estrella de la Muerte y caza estelar entre ramas de olivo',
+      booksBottomLeft: 'Ilustración de pila de libros de aventuras y caracolas de mar',
+      suitcaseBottomRight: 'Ilustración de maleta de viaje vintage y brújula con huella felina',
+    },
   },
 
   venues: {

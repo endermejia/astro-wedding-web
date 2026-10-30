@@ -11,7 +11,7 @@ export const es: Translations = {
   shortLabel: 'ES',
 
   meta: {
-    title: 'Iris & Adela · 13·03·2027',
+    title: 'Iris & Adela · 13 de marzo de 2027',
     description:
       '¡Nos casamos! Sábado 13 de marzo de 2027 · Ayuntamiento de Elche y Las Palmeras Resort (Crevillent).',
     author: 'Iris & Adela',
@@ -46,7 +46,7 @@ export const es: Translations = {
     monthNumber: '3',
     monthName: 'MARZO',
     year: '2027',
-    dottedFormat: '13 · 03 · 2027',
+    dottedFormat: '13 · MARZO · 2027',
     fullDateLabel: '13 de marzo de 2027',
   },
 
@@ -209,7 +209,7 @@ export const es: Translations = {
         'Celebración a las 14:30 h en Las Palmeras Resort (Crevillent). A las 21:30 h habrá resopón y barra libre.',
     },
     full: {
-      title: 'Boda de Iris & Adela (13·03·2027)',
+      title: 'Boda de Iris & Adela (13 de marzo de 2027)',
       location:
         'Ayuntamiento de Elche (12:30 h) y Las Palmeras Resort, Crevillent (14:30 h)',
       description:

@@ -30,8 +30,7 @@ const WeddingExperienceContent: React.FC = () => {
     };
   }, [hasEntered]);
 
-  const handleEnter = useCallback((withMusic: boolean) => {
-    setHasEntered(true);
+  const handleStartAudio = useCallback((withMusic: boolean) => {
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -55,6 +54,14 @@ const WeddingExperienceContent: React.FC = () => {
       setIsPlaying(false);
     }
   }, []);
+
+  const handleEnter = useCallback(
+    (withMusic: boolean) => {
+      handleStartAudio(withMusic);
+      setHasEntered(true);
+    },
+    [handleStartAudio]
+  );
 
   const handleToggleMusic = useCallback(() => {
     const audio = audioRef.current;
@@ -87,7 +94,11 @@ const WeddingExperienceContent: React.FC = () => {
       </audio>
 
       {/* Initial Loading & Wax Seal Entrance Screen */}
-      <OpeningLoader isOpen={hasEntered} onEnter={handleEnter} />
+      <OpeningLoader
+        isOpen={hasEntered}
+        onStartAudio={handleStartAudio}
+        onEnter={handleEnter}
+      />
 
       {/* Floating Navigation, Language Switcher & Music Toggle */}
       {hasEntered && (

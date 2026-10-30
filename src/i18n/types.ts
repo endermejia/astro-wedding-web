@@ -55,7 +55,6 @@ export interface DateTranslations {
   monthName: string;
   year: string;
   dottedFormat: string;
-  shortYearFormat: string;
   fullDateLabel: string;
 }
 
@@ -67,6 +66,9 @@ export interface MusicTranslations {
 }
 
 export interface LoaderTranslations {
+  envelopeLabel: string;
+  tapSealHint: string;
+  letterGreeting: string;
   loadingProgress: string;
   enterWithMusic: string;
   enterWithoutMusic: string;

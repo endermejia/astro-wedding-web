@@ -46,8 +46,7 @@ export const es: Translations = {
     monthNumber: '3',
     monthName: 'MARZO',
     year: '2027',
-    dottedFormat: '13 · 3 · 2027',
-    shortYearFormat: '13 · 03 · 27',
+    dottedFormat: '13 · 03 · 2027',
     fullDateLabel: '13 de marzo de 2027',
   },
 
@@ -59,10 +58,13 @@ export const es: Translations = {
   },
 
   loader: {
-    loadingProgress: 'Cargando...',
-    enterWithMusic: 'Entrar con música',
-    enterWithoutMusic: 'Entrar sin música',
-    sealAriaLabel: 'Abrir invitación de boda de Iris y Adela',
+    envelopeLabel: 'Invitación de boda',
+    tapSealHint: 'Pulsa el sello para abrir la carta',
+    letterGreeting: 'Nuestra gran aventura',
+    loadingProgress: 'Preparando vuestra invitación...',
+    enterWithMusic: 'Abrir con música',
+    enterWithoutMusic: 'Abrir sin música',
+    sealAriaLabel: 'Abrir carta de invitación de Iris y Adela',
   },
 
   hero: {

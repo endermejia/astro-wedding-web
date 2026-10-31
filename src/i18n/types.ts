@@ -67,7 +67,6 @@ export interface MusicTranslations {
 
 export interface LoaderTranslations {
   envelopeLabel: string;
-  tapSealHint: string;
   letterGreeting: string;
   loadingProgress: string;
   enterWithMusic: string;

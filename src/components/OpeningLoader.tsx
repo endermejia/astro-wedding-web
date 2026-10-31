@@ -343,10 +343,6 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
               transition={{ duration: 0.3 }}
               className="mt-7 sm:mt-9 flex flex-col items-center text-center gap-3.5"
             >
-              <p className="font-editorial italic text-base sm:text-lg text-[#555B2F]/80">
-                {t.loader.tapSealHint}
-              </p>
-
               {!isReady ? (
                 <div className="w-44 flex flex-col items-center py-2">
                   <div className="w-full h-[2px] bg-[#555B2F]/15 overflow-hidden">

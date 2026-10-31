@@ -59,7 +59,6 @@ export const va: Translations = {
 
   loader: {
     envelopeLabel: 'Invitació de boda',
-    tapSealHint: 'Prem el segell per a obrir la carta',
     letterGreeting: 'La nostra gran aventura',
     loadingProgress: 'Preparant la vostra invitació...',
     enterWithMusic: 'Obrir amb música',

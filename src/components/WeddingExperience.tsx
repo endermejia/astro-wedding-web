@@ -38,15 +38,19 @@ const WeddingExperienceContent: React.FC = () => {
     if (withMusic) {
       audio.muted = false;
       setIsMuted(false);
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch(() => {
-            setIsPlaying(false);
-          });
+      if (audio.paused) {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true);
+            })
+            .catch(() => {
+              setIsPlaying(false);
+            });
+        }
+      } else {
+        setIsPlaying(true);
       }
     } else {
       audio.muted = true;

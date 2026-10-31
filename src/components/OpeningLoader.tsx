@@ -269,11 +269,11 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
               className="absolute top-3 right-3 sm:top-6 sm:right-8 w-32 sm:w-44 md:w-56 opacity-55 object-contain"
             />
 
-            {/* Top Envelope Label (Above the Wax Seal on Top Flap) */}
-            <div className="absolute inset-x-0 top-[18%] sm:top-[20%] flex flex-col items-center text-center px-4">
+            {/* Top Envelope Label & Couple Names (Above the Wax Seal on Top Flap) */}
+            <div className="absolute inset-x-0 top-[14%] sm:top-[16%] flex flex-col items-center text-center px-4">
               <div
                 aria-hidden="true"
-                className="flex items-center gap-2.5 mb-2.5 text-[#B86B4B]/75"
+                className="flex items-center gap-2.5 mb-2 text-[#B86B4B]/75"
               >
                 {[0, 1, 2].map((step) => (
                   <motion.div
@@ -290,12 +290,16 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
                   </motion.div>
                 ))}
               </div>
-              <span className="font-sans-label text-[10px] sm:text-xs tracking-[0.36em] uppercase text-[#555B2F]/80">
+              <span className="font-sans-label text-[10px] sm:text-xs tracking-[0.36em] uppercase text-[#555B2F]/75">
                 {t.loader.envelopeLabel}
               </span>
-              <span className="mt-2 font-editorial italic text-xl sm:text-2xl md:text-3xl text-[#555B2F]/90">
-                {t.loader.letterGreeting}
-              </span>
+              <h1 className="mt-2 font-display text-4xl sm:text-5xl md:text-6xl text-[#555B2F] leading-none tracking-tight">
+                {t.couple.partner1}{' '}
+                <span className="font-editorial italic text-3xl sm:text-4xl md:text-5xl text-[#B86B4B]">
+                  {t.couple.symbolicConjunction}
+                </span>{' '}
+                {t.couple.partner2}
+              </h1>
             </div>
           </motion.div>
 
@@ -318,7 +322,7 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
                   : { scale: 1, opacity: 1, y: 0 }
               }
               transition={{ duration: 0.38, ease: 'easeOut' }}
-              className="mt-10 sm:mt-12"
+              className="mt-12 sm:mt-14"
             >
               <motion.button
                 type="button"
@@ -326,14 +330,11 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
                 whileHover={{ scale: 1.06 }}
                 whileTap={{ scale: 0.96 }}
                 aria-label={t.loader.sealAriaLabel}
-                className="group relative w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-gradient-to-br from-[#5B6232] via-[#454A24] to-[#2C3016] text-[#FCF8F0] shadow-[0_16px_34px_-6px_rgba(44,48,24,0.6),inset_0_2px_5px_rgba(255,255,255,0.22)] border-2 border-[#C59B57]/80 flex flex-col items-center justify-center cursor-pointer"
+                className="group relative w-22 h-22 sm:w-26 sm:h-26 rounded-full bg-gradient-to-br from-[#5B6232] via-[#454A24] to-[#2C3016] text-[#FCF8F0] shadow-[0_16px_34px_-6px_rgba(44,48,24,0.6),inset_0_2px_5px_rgba(255,255,255,0.22)] border-2 border-[#C59B57]/80 flex flex-col items-center justify-center cursor-pointer"
               >
                 <span className="pointer-events-none absolute inset-1.5 rounded-full border border-[#C59B57]/45" />
                 <span className="pointer-events-none absolute inset-3 rounded-full border border-dashed border-[#FCF8F0]/20" />
-                <OneRingSvg className="w-6 h-6 text-[#C59B57] opacity-90 mb-0.5 transition-transform duration-500 group-hover:rotate-12" />
-                <span className="font-display text-xl sm:text-2xl tracking-[0.18em] leading-none text-[#FCF8F0]">
-                  {t.couple.monogram}
-                </span>
+                <OneRingSvg className="w-8 h-8 sm:w-9 sm:h-9 text-[#C59B57] opacity-90 transition-transform duration-500 group-hover:rotate-12" />
               </motion.button>
             </motion.div>
 

@@ -111,18 +111,14 @@ export interface VenueItemTranslations {
   addressLine2: string;
   fullAddress: string;
   imageAlt: string;
-  mapIframeTitle: string;
 }
 
 export interface VenuesSectionTranslations {
   eyebrow: string;
   title: string;
-  ctaOpenMaps: string;
-  ctaShowMap: string;
-  ctaHideMap: string;
+  ctaDirections: string;
   ctaCopyAddress: string;
   ctaCopiedAddress: string;
-  ctaCalendar: string;
   items: readonly [VenueItemTranslations, VenueItemTranslations];
 }
 

@@ -104,12 +104,9 @@ export const es: Translations = {
   venues: {
     eyebrow: 'Dónde y cuándo',
     title: 'Lugares',
-    ctaOpenMaps: 'Cómo llegar en Google Maps',
-    ctaShowMap: 'Ver mapa',
-    ctaHideMap: 'Ocultar mapa',
+    ctaDirections: 'Cómo llegar',
     ctaCopyAddress: 'Copiar dirección',
     ctaCopiedAddress: '¡Copiada!',
-    ctaCalendar: 'Agendar',
     items: [
       {
         id: 'ceremonia',
@@ -120,7 +117,6 @@ export const es: Translations = {
         addressLine2: '03202 Elche, Alicante',
         fullAddress: 'Ayuntamiento de Elche, Plaza de Baix, 1, 03202 Elche, Alicante',
         imageAlt: 'Ilustración del Ayuntamiento de Elche en la Plaza de Baix',
-        mapIframeTitle: 'Mapa de ubicación del Ayuntamiento de Elche',
       },
       {
         id: 'celebracion',
@@ -132,7 +128,6 @@ export const es: Translations = {
         fullAddress:
           'Las Palmeras Resort, Carrer Gutiérrez de Cárdenas, N-340a, Km 708, 03330 Crevillent, Alicante',
         imageAlt: 'Ilustración de Las Palmeras Resort en Crevillent',
-        mapIframeTitle: 'Mapa de ubicación de Las Palmeras Resort en Crevillent',
       },
     ],
   },

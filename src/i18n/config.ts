@@ -25,19 +25,15 @@ export const WEDDING_CONFIG = {
   venues: {
     ceremonia: {
       image: '/images/ayuntamiento-elche.png',
-      mapsQueryUrl:
-        'https://www.google.com/maps/search/?api=1&query=Ayuntamiento+de+Elche+Pla%C3%A7a+de+Baix+1+03202+Elche+Alicante',
-      mapsEmbedUrl:
-        'https://maps.google.com/maps?q=Ayuntamiento%20de%20Elche,%20Pla%C3%A7a%20de%20Baix%201,%2003202%20Elche&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      directionsUrl:
+        'https://www.google.com/maps/dir/?api=1&destination=Ayuntamiento+de+Elche+Pla%C3%A7a+de+Baix+1+03202+Elche+Alicante',
       calendarStartUtc: '20270313T113000Z',
       calendarEndUtc: '20270313T131500Z',
     },
     celebracion: {
       image: '/images/las-palmeras-resort.png',
-      mapsQueryUrl:
-        'https://www.google.com/maps/search/?api=1&query=Las+Palmeras+Resort+Crevillent+N-340a+Km+708+03330+Crevillent+Alicante',
-      mapsEmbedUrl:
-        'https://maps.google.com/maps?q=Las%20Palmeras%20Resort,%20N-340a%20Km%20708,%2003330%20Crevillent&t=&z=15&ie=UTF8&iwloc=&output=embed',
+      directionsUrl:
+        'https://www.google.com/maps/dir/?api=1&destination=Las+Palmeras+Resort+Crevillent+N-340a+Km+708+03330+Crevillent+Alicante',
       calendarStartUtc: '20270313T133000Z',
       calendarEndUtc: '20270314T020000Z',
     },
@@ -45,8 +41,7 @@ export const WEDDING_CONFIG = {
     VenueId,
     {
       image: string;
-      mapsQueryUrl: string;
-      mapsEmbedUrl: string;
+      directionsUrl: string;
       calendarStartUtc: string;
       calendarEndUtc: string;
     }

@@ -104,12 +104,9 @@ export const va: Translations = {
   venues: {
     eyebrow: 'On i quan',
     title: 'Llocs',
-    ctaOpenMaps: 'Com arribar en Google Maps',
-    ctaShowMap: 'Veure mapa',
-    ctaHideMap: 'Ocultar mapa',
+    ctaDirections: 'Com arribar',
     ctaCopyAddress: 'Copiar adreça',
     ctaCopiedAddress: 'Copiada!',
-    ctaCalendar: 'Agendar',
     items: [
       {
         id: 'ceremonia',
@@ -120,7 +117,6 @@ export const va: Translations = {
         addressLine2: '03202 Elx, Alacant',
         fullAddress: "Ajuntament d'Elx, Plaça de Baix, 1, 03202 Elx, Alacant",
         imageAlt: "Il·lustració de l'Ajuntament d'Elx a la Plaça de Baix",
-        mapIframeTitle: "Mapa d'ubicació de l'Ajuntament d'Elx",
       },
       {
         id: 'celebracion',
@@ -132,7 +128,6 @@ export const va: Translations = {
         fullAddress:
           'Las Palmeras Resort, Carrer Gutiérrez de Cárdenas, N-340a, Km 708, 03330 Crevillent, Alacant',
         imageAlt: 'Il·lustració de Las Palmeras Resort a Crevillent',
-        mapIframeTitle: "Mapa d'ubicació de Las Palmeras Resort a Crevillent",
       },
     ],
   },

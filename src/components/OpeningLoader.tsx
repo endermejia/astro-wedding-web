@@ -1,10 +1,32 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Volume2, VolumeX } from 'lucide-react';
 import { useI18n } from '../i18n/I18nContext';
 import { WEDDING_CONFIG } from '../i18n';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { CatPawsSvg, OneRingSvg } from './icons/GeekIcons';
+
+const RevealText: React.FC<{ text: string; className?: string }> = ({ text, className }) => {
+  return (
+    <>
+      <span
+        aria-hidden="true"
+        className={className}
+      >
+        {Array.from(text).map((character, index) => (
+          <span
+            key={`${character}-${index}`}
+            className="opening-text-character"
+            style={{ animationDelay: `${0.12 + index * 0.035}s` }}
+          >
+            {character === ' ' ? '\u00a0' : character}
+          </span>
+        ))}
+      </span>
+      <span className="sr-only">{text}</span>
+    </>
+  );
+};
 
 interface OpeningLoaderProps {
   isOpen: boolean;
@@ -19,24 +41,7 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
 }) => {
   const { t } = useI18n();
   const { storyBorders } = WEDDING_CONFIG;
-  const [progress, setProgress] = useState(0);
-  const [isReady, setIsReady] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
-
-  useEffect(() => {
-    const start = performance.now();
-    const duration = 600;
-    const interval = window.setInterval(() => {
-      const elapsed = performance.now() - start;
-      const pct = Math.min(100, Math.round((elapsed / duration) * 100));
-      setProgress(pct);
-      if (pct >= 100) {
-        setIsReady(true);
-        window.clearInterval(interval);
-      }
-    }, 25);
-    return () => window.clearInterval(interval);
-  }, []);
 
   const triggerOpen = useCallback(
     (withMusic: boolean) => {
@@ -58,6 +63,7 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
       {!isOpen && (
         <motion.div
           key="opening-loader"
+          data-opening-screen
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
@@ -290,15 +296,17 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
                   </motion.div>
                 ))}
               </div>
-              <span className="font-sans-label text-[10px] sm:text-xs tracking-[0.36em] uppercase text-[#555B2F]/75">
-                {t.loader.envelopeLabel}
-              </span>
+              <RevealText
+                text={t.loader.envelopeLabel}
+                className="font-sans-label text-[10px] sm:text-xs tracking-[0.36em] uppercase text-[#555B2F]/75"
+              />
               <h1 className="mt-2 font-display text-4xl sm:text-5xl md:text-6xl text-[#555B2F] leading-none tracking-tight">
-                {t.couple.partner1}{' '}
-                <span className="font-editorial italic text-3xl sm:text-4xl md:text-5xl text-[#B86B4B]">
-                  {t.couple.symbolicConjunction}
-                </span>{' '}
-                {t.couple.partner2}
+                <RevealText text={t.couple.partner1} />{' '}
+                <RevealText
+                  text={t.couple.symbolicConjunction}
+                  className="font-editorial italic text-3xl sm:text-4xl md:text-5xl text-[#B86B4B]"
+                />{' '}
+                <RevealText text={t.couple.partner2} />
               </h1>
             </div>
           </motion.div>
@@ -344,39 +352,25 @@ export const OpeningLoader: React.FC<OpeningLoaderProps> = ({
               transition={{ duration: 0.3 }}
               className="mt-7 sm:mt-9 flex flex-col items-center text-center gap-3.5"
             >
-              {!isReady ? (
-                <div className="w-44 flex flex-col items-center py-2">
-                  <div className="w-full h-[2px] bg-[#555B2F]/15 overflow-hidden">
-                    <motion.div
-                      className="h-full bg-[#555B2F]"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
-                  <p className="font-sans-label text-[9px] tracking-[0.24em] uppercase text-[#555B2F]/55 mt-1.5">
-                    {t.loader.loadingProgress}
-                  </p>
-                </div>
-              ) : (
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4">
-                  <button
-                    type="button"
-                    onClick={() => triggerOpen(true)}
-                    className="btn-fresco-olive w-full sm:w-auto min-w-[215px] shadow-md"
-                  >
-                    <Volume2 className="w-4 h-4 text-[#C59B57]" />
-                    <span>{t.loader.enterWithMusic}</span>
-                  </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4">
+                <button
+                  type="button"
+                  onClick={() => triggerOpen(true)}
+                  className="btn-fresco-olive w-full sm:w-auto min-w-[215px] shadow-md"
+                >
+                  <Volume2 className="w-4 h-4 text-[#C59B57]" />
+                  <span>{t.loader.enterWithMusic}</span>
+                </button>
 
-                  <button
-                    type="button"
-                    onClick={() => triggerOpen(false)}
-                    className="btn-fresco-outline w-full sm:w-auto min-w-[185px] !py-2.5 bg-[#FCF8F0]/70"
-                  >
-                    <VolumeX className="w-3.5 h-3.5 text-[#555B2F]/75" />
-                    <span>{t.loader.enterWithoutMusic}</span>
-                  </button>
-                </div>
-              )}
+                <button
+                  type="button"
+                  onClick={() => triggerOpen(false)}
+                  className="btn-fresco-outline w-full sm:w-auto min-w-[185px] !py-2.5 bg-[#FCF8F0]/70"
+                >
+                  <VolumeX className="w-3.5 h-3.5 text-[#555B2F]/75" />
+                  <span>{t.loader.enterWithoutMusic}</span>
+                </button>
+              </div>
             </motion.div>
           </div>
         </motion.div>

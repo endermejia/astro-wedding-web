@@ -20,7 +20,8 @@ export const StorySection: React.FC = () => {
         {/* Mobile Top Arch Frame (Straw Hat & Golden Snitch) */}
         <div
           aria-hidden="true"
-          className="flex md:hidden justify-between items-start -mx-3 sm:mx-0 mb-2 pointer-events-none select-none"
+          className="story-wind-sway flex md:hidden justify-between items-start -mx-3 sm:mx-0 mb-2 pointer-events-none select-none"
+          style={{ animationDelay: '0s' }}
         >
           <motion.img
             src={storyBorders.hatTopLeft}
@@ -47,7 +48,10 @@ export const StorySection: React.FC = () => {
         {/* Desktop & Tablet 3-Column Botanical/Geek Frame + Central Story */}
         <div className="relative md:flex md:items-stretch md:justify-between md:gap-6 lg:gap-8">
           {/* Left Illustrated Border Column (Desktop/Tablet) */}
-          <div className="hidden md:flex flex-col justify-between items-start w-44 lg:w-60 xl:w-72 shrink-0 select-none pointer-events-none">
+          <div
+            className="story-wind-sway hidden md:flex flex-col justify-between items-start w-44 lg:w-60 xl:w-72 shrink-0 select-none pointer-events-none"
+            style={{ animationDelay: '4s' }}
+          >
             <motion.img
               src={storyBorders.hatTopLeft}
               alt={borderAlts.hatTopLeft}
@@ -142,7 +146,8 @@ export const StorySection: React.FC = () => {
               {/* Mobile Side Borders Pair 1 (Olive Tree & Pink Donut hugging left/right edges between paragraphs) */}
               <div
                 aria-hidden="true"
-                className="flex md:hidden justify-between items-center -mx-5 sm:-mx-6 py-1 pointer-events-none select-none"
+                className="story-wind-sway flex md:hidden justify-between items-center -mx-5 sm:-mx-6 py-1 pointer-events-none select-none"
+                style={{ animationDelay: '8s' }}
               >
                 <motion.img
                   src={storyBorders.treeMidLeft}
@@ -191,7 +196,8 @@ export const StorySection: React.FC = () => {
               {/* Mobile Side Borders Pair 2 (One Ring & Death Star hugging left/right edges before signature) */}
               <div
                 aria-hidden="true"
-                className="flex md:hidden justify-between items-center -mx-5 sm:-mx-6 py-1 pointer-events-none select-none"
+                className="story-wind-sway flex md:hidden justify-between items-center -mx-5 sm:-mx-6 py-1 pointer-events-none select-none"
+                style={{ animationDelay: '12s' }}
               >
                 <motion.img
                   src={storyBorders.ringLowLeft}
@@ -246,7 +252,10 @@ export const StorySection: React.FC = () => {
           </div>
 
           {/* Right Illustrated Border Column (Desktop/Tablet) */}
-          <div className="hidden md:flex flex-col justify-between items-end w-44 lg:w-60 xl:w-72 shrink-0 select-none pointer-events-none">
+          <div
+            className="story-wind-sway hidden md:flex flex-col justify-between items-end w-44 lg:w-60 xl:w-72 shrink-0 select-none pointer-events-none"
+            style={{ animationDelay: '16s' }}
+          >
             <motion.img
               src={storyBorders.snitchTopRight}
               alt={borderAlts.snitchTopRight}
@@ -293,7 +302,8 @@ export const StorySection: React.FC = () => {
         {/* Mobile Bottom Arch Frame (Stack of Books & Travel Suitcase) */}
         <div
           aria-hidden="true"
-          className="flex md:hidden justify-between items-end -mx-2 sm:mx-0 mt-5 pointer-events-none select-none"
+          className="story-wind-sway flex md:hidden justify-between items-end -mx-2 sm:mx-0 mt-5 pointer-events-none select-none"
+          style={{ animationDelay: '20s' }}
         >
           <motion.img
             src={storyBorders.booksBottomLeft}

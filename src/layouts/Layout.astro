@@ -52,9 +52,20 @@ const resolvedDescription = description ?? t.meta.description;
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600&family=Reenie+Beanie&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600&family=Reenie+Beanie&display=swap"
+      />
+    </noscript>
   </head>
-  <body class="antialiased selection:bg-[#555B2F] selection:text-[#FCF8F0]">
+  <body
+    class="antialiased selection:bg-[#555B2F] selection:text-[#FCF8F0]"
+    data-invitation-locked
+  >
     <slot />
   </body>
 </html>

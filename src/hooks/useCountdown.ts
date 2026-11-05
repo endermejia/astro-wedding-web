@@ -28,7 +28,13 @@ function calculateRemaining(targetIso: string): CountdownTime {
 }
 
 export function useCountdown(targetIso: string = WEDDING_CONFIG.date.isoStart): CountdownTime {
-  const [time, setTime] = useState<CountdownTime>(() => calculateRemaining(targetIso));
+  const [time, setTime] = useState<CountdownTime>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    isComplete: false,
+  });
 
   useEffect(() => {
     setTime(calculateRemaining(targetIso));

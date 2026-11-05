@@ -18,15 +18,15 @@ const WeddingExperienceContent: React.FC = () => {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Lock body scroll while the Opening Loader is active (Fresco pattern)
+  // The body starts locked in the static HTML to prevent the scrollbar flashing before hydration.
   useEffect(() => {
     if (!hasEntered) {
-      document.body.style.overflow = 'hidden';
+      document.body.setAttribute('data-invitation-locked', '');
     } else {
-      document.body.style.overflow = '';
+      document.body.removeAttribute('data-invitation-locked');
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.removeAttribute('data-invitation-locked');
     };
   }, [hasEntered]);
 

@@ -203,22 +203,22 @@ body[data-invitation-locked] {
 }
 
 @keyframes storyWindGust {
-  0%, 68%, 100% {
+  0%, 18%, 55%, 100% {
     rotate: 0deg;
   }
-  73% {
+  23% {
     rotate: var(--story-wind-angle-one, -0.35deg);
   }
-  78% {
+  30% {
     rotate: var(--story-wind-angle-two, 0.2deg);
   }
-  83% {
+  37% {
     rotate: var(--story-wind-angle-three, 0.35deg);
   }
-  88% {
+  44% {
     rotate: var(--story-wind-angle-four, -0.12deg);
   }
-  93% {
+  50% {
     rotate: 0deg;
   }
 }
@@ -257,12 +257,12 @@ body[data-invitation-locked] {
 }
 
 .story-wind-image {
-  --story-wind-angle-one: -0.35deg;
-  --story-wind-angle-two: 0.2deg;
-  --story-wind-angle-three: 0.35deg;
-  --story-wind-angle-four: -0.12deg;
+  --story-wind-angle-one: -0.8deg;
+  --story-wind-angle-two: 0.45deg;
+  --story-wind-angle-three: 0.9deg;
+  --story-wind-angle-four: -0.3deg;
   transform-origin: 50% 85%;
-  animation: storyWindGust 12s ease-in-out infinite;
+  animation: storyWindGust 11s ease-in-out infinite;
 }
 
 .heart-pulse {
@@ -284,10 +284,10 @@ body[data-invitation-locked] {
   }
 
   .story-wind-image {
-    --story-wind-angle-one: -0.16deg;
-    --story-wind-angle-two: 0.09deg;
-    --story-wind-angle-three: 0.16deg;
-    --story-wind-angle-four: -0.06deg;
-    animation-duration: 18s;
+    --story-wind-angle-one: -0.55deg;
+    --story-wind-angle-two: 0.32deg;
+    --story-wind-angle-three: 0.6deg;
+    --story-wind-angle-four: -0.2deg;
+    animation-duration: 16s;
   }
 }

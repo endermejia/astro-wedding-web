@@ -20,8 +20,7 @@ export const StorySection: React.FC = () => {
         {/* Mobile Top Arch Frame (Straw Hat & Golden Snitch) */}
         <div
           aria-hidden="true"
-          className="story-wind-sway flex md:hidden justify-between items-start -mx-3 sm:mx-0 mb-2 pointer-events-none select-none"
-          style={{ animationDelay: '0s' }}
+          className="flex md:hidden justify-between items-start -mx-3 sm:mx-0 mb-2 pointer-events-none select-none"
         >
           <motion.img
             src={storyBorders.hatTopLeft}
@@ -31,7 +30,8 @@ export const StorySection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
-            className="w-36 sm:w-44 h-auto object-contain"
+            className="story-wind-image w-36 sm:w-44 h-auto object-contain"
+            style={{ animationDelay: '0s' }}
           />
           <motion.img
             src={storyBorders.snitchTopRight}
@@ -41,7 +41,8 @@ export const StorySection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.08 }}
-            className="w-36 sm:w-44 h-auto object-contain"
+            className="story-wind-image w-36 sm:w-44 h-auto object-contain"
+            style={{ animationDelay: '1.2s' }}
           />
         </div>
 
@@ -49,8 +50,7 @@ export const StorySection: React.FC = () => {
         <div className="relative md:flex md:items-stretch md:justify-between md:gap-6 lg:gap-8">
           {/* Left Illustrated Border Column (Desktop/Tablet) */}
           <div
-            className="story-wind-sway hidden md:flex flex-col justify-between items-start w-44 lg:w-60 xl:w-72 shrink-0 select-none pointer-events-none"
-            style={{ animationDelay: '4s' }}
+            className="hidden md:flex flex-col justify-between items-start w-44 lg:w-60 xl:w-72 shrink-0 select-none pointer-events-none"
           >
             <motion.img
               src={storyBorders.hatTopLeft}
@@ -60,7 +60,8 @@ export const StorySection: React.FC = () => {
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.75, ease: 'easeOut' }}
-              className="w-44 lg:w-60 xl:w-72 h-auto object-contain lg:translate-x-6"
+              className="story-wind-image w-44 lg:w-60 xl:w-72 h-auto object-contain lg:translate-x-6"
+              style={{ animationDelay: '0.6s' }}
             />
             <motion.img
               src={storyBorders.treeMidLeft}
@@ -70,7 +71,8 @@ export const StorySection: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
-              className="w-40 lg:w-56 xl:w-64 h-auto object-contain -my-2"
+              className="story-wind-image w-40 lg:w-56 xl:w-64 h-auto object-contain -my-2"
+              style={{ animationDelay: '2.1s' }}
             />
             <motion.img
               src={storyBorders.ringLowLeft}
@@ -80,7 +82,8 @@ export const StorySection: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.75, delay: 0.15, ease: 'easeOut' }}
-              className="w-36 lg:w-48 xl:w-52 h-auto object-contain lg:translate-x-3"
+              className="story-wind-image w-36 lg:w-48 xl:w-52 h-auto object-contain lg:translate-x-3"
+              style={{ animationDelay: '3.6s' }}
             />
             <motion.img
               src={storyBorders.booksBottomLeft}
@@ -90,7 +93,8 @@ export const StorySection: React.FC = () => {
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-              className="w-40 lg:w-56 xl:w-64 h-auto object-contain lg:translate-x-4"
+              className="story-wind-image w-40 lg:w-56 xl:w-64 h-auto object-contain lg:translate-x-4"
+              style={{ animationDelay: '5.1s' }}
             />
           </div>
 
@@ -146,8 +150,7 @@ export const StorySection: React.FC = () => {
               {/* Mobile Side Borders Pair 1 (Olive Tree & Pink Donut hugging left/right edges between paragraphs) */}
               <div
                 aria-hidden="true"
-                className="story-wind-sway flex md:hidden justify-between items-center -mx-5 sm:-mx-6 py-1 pointer-events-none select-none"
-                style={{ animationDelay: '8s' }}
+                className="flex md:hidden justify-between items-center -mx-5 sm:-mx-6 py-1 pointer-events-none select-none"
               >
                 <motion.img
                   src={storyBorders.treeMidLeft}
@@ -157,7 +160,8 @@ export const StorySection: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7 }}
-                  className="w-32 sm:w-40 h-auto object-contain"
+                  className="story-wind-image w-32 sm:w-40 h-auto object-contain"
+                  style={{ animationDelay: '2.4s' }}
                 />
                 <motion.img
                   src={storyBorders.donutMidRight}
@@ -167,7 +171,8 @@ export const StorySection: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.08 }}
-                  className="w-28 sm:w-36 h-auto object-contain"
+                  className="story-wind-image w-28 sm:w-36 h-auto object-contain"
+                  style={{ animationDelay: '3.8s' }}
                 />
               </div>
 
@@ -196,8 +201,7 @@ export const StorySection: React.FC = () => {
               {/* Mobile Side Borders Pair 2 (One Ring & Death Star hugging left/right edges before signature) */}
               <div
                 aria-hidden="true"
-                className="story-wind-sway flex md:hidden justify-between items-center -mx-5 sm:-mx-6 py-1 pointer-events-none select-none"
-                style={{ animationDelay: '12s' }}
+                className="flex md:hidden justify-between items-center -mx-5 sm:-mx-6 py-1 pointer-events-none select-none"
               >
                 <motion.img
                   src={storyBorders.ringLowLeft}
@@ -207,7 +211,8 @@ export const StorySection: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7 }}
-                  className="w-28 sm:w-36 h-auto object-contain"
+                  className="story-wind-image w-28 sm:w-36 h-auto object-contain"
+                  style={{ animationDelay: '4.9s' }}
                 />
                 <motion.img
                   src={storyBorders.deathstarLowRight}
@@ -217,7 +222,8 @@ export const StorySection: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: 0.08 }}
-                  className="w-28 sm:w-36 h-auto object-contain"
+                  className="story-wind-image w-28 sm:w-36 h-auto object-contain"
+                  style={{ animationDelay: '6.3s' }}
                 />
               </div>
             </div>
@@ -253,8 +259,7 @@ export const StorySection: React.FC = () => {
 
           {/* Right Illustrated Border Column (Desktop/Tablet) */}
           <div
-            className="story-wind-sway hidden md:flex flex-col justify-between items-end w-44 lg:w-60 xl:w-72 shrink-0 select-none pointer-events-none"
-            style={{ animationDelay: '16s' }}
+            className="hidden md:flex flex-col justify-between items-end w-44 lg:w-60 xl:w-72 shrink-0 select-none pointer-events-none"
           >
             <motion.img
               src={storyBorders.snitchTopRight}
@@ -264,7 +269,8 @@ export const StorySection: React.FC = () => {
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.75, delay: 0.05, ease: 'easeOut' }}
-              className="w-44 lg:w-60 xl:w-72 h-auto object-contain lg:-translate-x-6"
+              className="story-wind-image w-44 lg:w-60 xl:w-72 h-auto object-contain lg:-translate-x-6"
+              style={{ animationDelay: '1.1s' }}
             />
             <motion.img
               src={storyBorders.donutMidRight}
@@ -274,7 +280,8 @@ export const StorySection: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.8, delay: 0.12, ease: 'easeOut' }}
-              className="w-36 lg:w-48 xl:w-52 h-auto object-contain -my-2"
+              className="story-wind-image w-36 lg:w-48 xl:w-52 h-auto object-contain -my-2"
+              style={{ animationDelay: '2.8s' }}
             />
             <motion.img
               src={storyBorders.deathstarLowRight}
@@ -284,7 +291,8 @@ export const StorySection: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.75, delay: 0.18, ease: 'easeOut' }}
-              className="w-36 lg:w-48 xl:w-52 h-auto object-contain lg:-translate-x-2"
+              className="story-wind-image w-36 lg:w-48 xl:w-52 h-auto object-contain lg:-translate-x-2"
+              style={{ animationDelay: '4.4s' }}
             />
             <motion.img
               src={storyBorders.suitcaseBottomRight}
@@ -294,7 +302,8 @@ export const StorySection: React.FC = () => {
               whileInView={{ opacity: 1, x: 0, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.8, delay: 0.22, ease: 'easeOut' }}
-              className="w-40 lg:w-56 xl:w-64 h-auto object-contain lg:-translate-x-4"
+              className="story-wind-image w-40 lg:w-56 xl:w-64 h-auto object-contain lg:-translate-x-4"
+              style={{ animationDelay: '6.1s' }}
             />
           </div>
         </div>
@@ -302,8 +311,7 @@ export const StorySection: React.FC = () => {
         {/* Mobile Bottom Arch Frame (Stack of Books & Travel Suitcase) */}
         <div
           aria-hidden="true"
-          className="story-wind-sway flex md:hidden justify-between items-end -mx-2 sm:mx-0 mt-5 pointer-events-none select-none"
-          style={{ animationDelay: '20s' }}
+          className="flex md:hidden justify-between items-end -mx-2 sm:mx-0 mt-5 pointer-events-none select-none"
         >
           <motion.img
             src={storyBorders.booksBottomLeft}
@@ -313,7 +321,8 @@ export const StorySection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65 }}
-            className="w-36 sm:w-44 h-auto object-contain"
+            className="story-wind-image w-36 sm:w-44 h-auto object-contain"
+            style={{ animationDelay: '7.2s' }}
           />
           <motion.img
             src={storyBorders.suitcaseBottomRight}
@@ -323,7 +332,8 @@ export const StorySection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.08 }}
-            className="w-36 sm:w-44 h-auto object-contain"
+            className="story-wind-image w-36 sm:w-44 h-auto object-contain"
+            style={{ animationDelay: '8.5s' }}
           />
         </div>
       </div>

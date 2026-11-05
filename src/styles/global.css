@@ -204,22 +204,22 @@ body[data-invitation-locked] {
 
 @keyframes storyWindGust {
   0%, 68%, 100% {
-    transform: rotate(0deg) translateX(0);
+    rotate: 0deg;
   }
   73% {
-    transform: rotate(-0.45deg) translateX(-1px);
+    rotate: var(--story-wind-angle-one, -0.35deg);
   }
   78% {
-    transform: rotate(0.3deg) translateX(0.5px);
+    rotate: var(--story-wind-angle-two, 0.2deg);
   }
   83% {
-    transform: rotate(0.45deg) translateX(1px);
+    rotate: var(--story-wind-angle-three, 0.35deg);
   }
   88% {
-    transform: rotate(-0.15deg) translateX(-0.5px);
+    rotate: var(--story-wind-angle-four, -0.12deg);
   }
   93% {
-    transform: rotate(0deg) translateX(0);
+    rotate: 0deg;
   }
 }
 
@@ -256,9 +256,13 @@ body[data-invitation-locked] {
   animation: leafBreathe 24s ease-in-out infinite;
 }
 
-.story-wind-sway {
-  transform-origin: center 85%;
-  animation: storyWindGust 24s ease-in-out infinite;
+.story-wind-image {
+  --story-wind-angle-one: -0.35deg;
+  --story-wind-angle-two: 0.2deg;
+  --story-wind-angle-three: 0.35deg;
+  --story-wind-angle-four: -0.12deg;
+  transform-origin: 50% 85%;
+  animation: storyWindGust 12s ease-in-out infinite;
 }
 
 .heart-pulse {
@@ -275,8 +279,15 @@ body[data-invitation-locked] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .leaf-breathe,
-  .story-wind-sway {
+  .leaf-breathe {
     animation-duration: 36s;
+  }
+
+  .story-wind-image {
+    --story-wind-angle-one: -0.16deg;
+    --story-wind-angle-two: 0.09deg;
+    --story-wind-angle-three: 0.16deg;
+    --story-wind-angle-four: -0.06deg;
+    animation-duration: 18s;
   }
 }

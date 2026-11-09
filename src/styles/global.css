@@ -38,22 +38,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Authentic watercolor paper tooth overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  background-image: url('/images/textures/paper-grain-overlay.png');
-  background-repeat: repeat;
-  background-size: 320px 320px;
-  opacity: 0.35;
-  mix-blend-mode: multiply;
-  z-index: 999;
-}
-
 body[data-invitation-locked] {
   overflow: hidden;
 }

@@ -175,8 +175,8 @@ const lz = Math.sin(elevAngle);
 const opaqueBuf = Buffer.alloc(SIZE * SIZE * 4);
 const overlayBuf = Buffer.alloc(SIZE * SIZE * 4);
 
-// Bump scale for natural, elegant watercolor tooth
-const bumpScale = 11.0;
+// Bump scale for natural, visible watercolor tooth (baked into single layer)
+const bumpScale = 10.5;
 
 for (let y = 0; y < SIZE; y++) {
   const yPrev = (y - 1 + SIZE) % SIZE;
@@ -213,24 +213,24 @@ for (let y = 0; y < SIZE; y++) {
     const lightDelta = lit - neutral;
 
     // Soft paper density variation (cotton pulp)
-    const pulpVariation = (h / (maxH - minH)) * 0.05;
+    const pulpVariation = (h / (maxH - minH)) * 0.048;
 
-    const paperEffect = lightDelta * 1.4 + pulpVariation;
+    const paperEffect = lightDelta * 1.45 + pulpVariation;
 
     // Base ivory: #FCF8F0 -> R: 252, G: 248, B: 240
     let r, g, b;
     if (paperEffect >= 0) {
       // Highlights on paper ridges (soft warm ivory)
-      const factor = Math.min(1.0, paperEffect * 1.25);
+      const factor = Math.min(1.0, paperEffect * 1.3);
       r = Math.round(252 + factor * 3);  // up to 255
       g = Math.round(248 + factor * 5);  // up to 253
       b = Math.round(240 + factor * 7);  // up to 247
     } else {
-      // Depressions in paper tooth (warm sand/linen shadows)
-      const s = Math.min(1.0, -paperEffect * 1.25);
-      r = Math.round(252 - s * 22); // down to ~230
-      g = Math.round(248 - s * 24); // down to ~224
-      b = Math.round(240 - s * 28); // down to ~212
+      // Depressions in paper tooth (warm sand/linen shadows, matching the original 0.35 grain overlay baked in)
+      const s = Math.min(1.0, -paperEffect * 1.35);
+      r = Math.round(252 - s * 25); // down to ~227
+      g = Math.round(248 - s * 27); // down to ~221
+      b = Math.round(240 - s * 32); // down to ~208
     }
 
     r = Math.min(255, Math.max(222, r));

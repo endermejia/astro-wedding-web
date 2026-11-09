@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { MotionConfig } from 'framer-motion';
 import { I18nProvider } from '../i18n/I18nContext';
 import { WEDDING_CONFIG, type Locale } from '../i18n';
 import { OpeningLoader } from './OpeningLoader';
@@ -12,7 +13,13 @@ import { FooterSection } from './FooterSection';
 import { FloatingControls } from './FloatingControls';
 
 const WeddingExperienceContent: React.FC = () => {
-  const [hasEntered, setHasEntered] = useState(false);
+  const [hasEntered, setHasEntered] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('preview') === 'open';
+    }
+    return false;
+  });
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
 
@@ -89,42 +96,44 @@ const WeddingExperienceContent: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#FCF8F0] text-[#555B2F]">
-      {/* Persistent Audio Element */}
-      <audio ref={audioRef} loop preload="auto" aria-hidden="true">
-        {WEDDING_CONFIG.music.sources.map((source) => (
-          <source key={source.src} src={source.src} type={source.type} />
-        ))}
-      </audio>
+    <MotionConfig reducedMotion="never">
+      <div className="relative min-h-screen bg-transparent text-[#555B2F]">
+        {/* Persistent Audio Element */}
+        <audio ref={audioRef} loop preload="auto" aria-hidden="true">
+          {WEDDING_CONFIG.music.sources.map((source) => (
+            <source key={source.src} src={source.src} type={source.type} />
+          ))}
+        </audio>
 
-      {/* Initial Loading & Wax Seal Entrance Screen */}
-      <OpeningLoader
-        isOpen={hasEntered}
-        onStartAudio={handleStartAudio}
-        onEnter={handleEnter}
-      />
-
-      {/* Floating Navigation, Language Switcher & Music Toggle */}
-      {hasEntered && (
-        <FloatingControls
-          isPlaying={isPlaying}
-          isMuted={isMuted}
-          onToggleMusic={handleToggleMusic}
+        {/* Initial Loading & Wax Seal Entrance Screen */}
+        <OpeningLoader
+          isOpen={hasEntered}
+          onStartAudio={handleStartAudio}
+          onEnter={handleEnter}
         />
-      )}
 
-      {/* Main Wedding Page Content */}
-      <main>
-        <HeroSection />
-        <StorySection />
-        <VenuesSection />
-        <TimelineSection />
-        <AccommodationSection />
-        <GiftSection />
-      </main>
+        {/* Floating Navigation, Language Switcher & Music Toggle */}
+        {hasEntered && (
+          <FloatingControls
+            isPlaying={isPlaying}
+            isMuted={isMuted}
+            onToggleMusic={handleToggleMusic}
+          />
+        )}
 
-      <FooterSection />
-    </div>
+        {/* Main Wedding Page Content */}
+        <main>
+          <HeroSection />
+          <StorySection />
+          <VenuesSection />
+          <TimelineSection />
+          <AccommodationSection />
+          <GiftSection />
+        </main>
+
+        <FooterSection />
+      </div>
+    </MotionConfig>
   );
 };
 

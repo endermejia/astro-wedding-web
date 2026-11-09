@@ -32,9 +32,26 @@ body {
   background-color: var(--bg-ivory);
   color: var(--olive);
   font-family: var(--font-editorial);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='0.045' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  background-size: 220px;
+  background-image: url('/images/textures/watercolor-paper.png');
+  background-repeat: repeat;
+  background-size: 380px 380px;
   overflow-x: hidden;
+}
+
+/* Authentic watercolor paper tooth overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background-image: url('/images/textures/paper-grain-overlay.png');
+  background-repeat: repeat;
+  background-size: 320px 320px;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  z-index: 999;
 }
 
 body[data-invitation-locked] {
@@ -202,27 +219,6 @@ body[data-invitation-locked] {
   }
 }
 
-@keyframes storyWindGust {
-  0%, 18%, 55%, 100% {
-    rotate: 0deg;
-  }
-  23% {
-    rotate: var(--story-wind-angle-one, -0.35deg);
-  }
-  30% {
-    rotate: var(--story-wind-angle-two, 0.2deg);
-  }
-  37% {
-    rotate: var(--story-wind-angle-three, 0.35deg);
-  }
-  44% {
-    rotate: var(--story-wind-angle-four, -0.12deg);
-  }
-  50% {
-    rotate: 0deg;
-  }
-}
-
 @keyframes heartBeatPulse {
   0%, 100% {
     transform: scale(1);
@@ -256,15 +252,6 @@ body[data-invitation-locked] {
   animation: leafBreathe 24s ease-in-out infinite;
 }
 
-.story-wind-image {
-  --story-wind-angle-one: -0.8deg;
-  --story-wind-angle-two: 0.45deg;
-  --story-wind-angle-three: 0.9deg;
-  --story-wind-angle-four: -0.3deg;
-  transform-origin: 50% 85%;
-  animation: storyWindGust 11s ease-in-out infinite;
-}
-
 .heart-pulse {
   animation: heartBeatPulse 2.4s ease-in-out infinite;
 }
@@ -281,13 +268,5 @@ body[data-invitation-locked] {
 @media (prefers-reduced-motion: reduce) {
   .leaf-breathe {
     animation-duration: 36s;
-  }
-
-  .story-wind-image {
-    --story-wind-angle-one: -0.55deg;
-    --story-wind-angle-two: 0.32deg;
-    --story-wind-angle-three: 0.6deg;
-    --story-wind-angle-four: -0.2deg;
-    animation-duration: 16s;
   }
 }

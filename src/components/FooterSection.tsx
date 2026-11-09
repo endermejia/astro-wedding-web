@@ -12,7 +12,7 @@ export const FooterSection: React.FC = () => {
   };
 
   return (
-    <footer className="relative pb-28 pt-10 text-center px-6 overflow-hidden bg-gradient-to-b from-[#FCF8F0] to-[#F5EFE2]">
+    <footer className="relative pb-28 pt-10 text-center px-6 overflow-hidden bg-gradient-to-b from-transparent to-[#F5EFE2]/60">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

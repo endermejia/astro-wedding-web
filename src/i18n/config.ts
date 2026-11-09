@@ -58,6 +58,9 @@ export const WEDDING_CONFIG = {
     phoneDisplay: '+34 965 40 01 09',
     phoneClean: '+34965400109',
   },
+  rsvp: {
+    whatsappPhone: '',
+  },
   gift: {
     ibanFormatted: 'ES69 2100 2780 3102 0048 7311',
     ibanRaw: 'ES6921002780310200487311',

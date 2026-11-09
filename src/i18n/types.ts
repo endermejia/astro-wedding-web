@@ -23,7 +23,10 @@ export type SectionId =
   | 'lugares'
   | 'programa'
   | 'alojamiento'
+  | 'asistencia'
   | 'regalo';
+
+export type RsvpAttendanceOption = 'both' | 'ceremony' | 'celebration' | 'decline';
 
 export interface NavTranslations {
   ariaLabel: string;
@@ -37,6 +40,7 @@ export interface NavTranslations {
     venues: string;
     timeline: string;
     accommodation: string;
+    rsvp: string;
     gift: string;
   };
 }
@@ -148,6 +152,45 @@ export interface AccommodationSectionTranslations {
   ctaCallPrefix: string;
 }
 
+export interface RsvpSectionTranslations {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  attendanceLabel: string;
+  options: {
+    both: string;
+    bothDesc: string;
+    ceremony: string;
+    ceremonyDesc: string;
+    celebration: string;
+    celebrationDesc: string;
+    decline: string;
+    declineDesc: string;
+  };
+  guestsLabel: string;
+  guestSingular: string;
+  guestPlural: string;
+  decreaseGuestsAria: string;
+  increaseGuestsAria: string;
+  notesLabel: string;
+  notesPlaceholder: string;
+  submitCta: string;
+  messagePreviewLabel: string;
+  whatsappMessage: {
+    greetingWithName: string;
+    greetingWithoutName: string;
+    both: string;
+    ceremony: string;
+    celebration: string;
+    decline: string;
+    guestsSingular: string;
+    guestsPlural: string;
+    notesPrefix: string;
+  };
+}
+
 export interface GiftSectionTranslations {
   eyebrow: string;
   title: string;
@@ -197,6 +240,7 @@ export interface Translations {
   venues: VenuesSectionTranslations;
   timeline: TimelineSectionTranslations;
   accommodation: AccommodationSectionTranslations;
+  rsvp: RsvpSectionTranslations;
   gift: GiftSectionTranslations;
   footer: FooterSectionTranslations;
   calendar: CalendarTranslations;

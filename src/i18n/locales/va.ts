@@ -29,6 +29,7 @@ export const va: Translations = {
       venues: 'Llocs',
       timeline: 'Horaris',
       accommodation: 'Allotjament',
+      rsvp: 'Assistència',
       gift: 'Regal',
     },
   },
@@ -167,6 +168,46 @@ export const va: Translations = {
     ctaCallPrefix: 'Telefonar',
   },
 
+  rsvp: {
+    eyebrow: "Confirmació d'assistència",
+    title: 'Ens acompanyeu?',
+    subtitle:
+      'Confirmeu la vostra assistència per WhatsApp indicant quants sereu i a quina part del gran dia vindreu.',
+    nameLabel: 'El vostre nom (opcional)',
+    namePlaceholder: 'Ex. Laura i Carles',
+    attendanceLabel: 'Assistència',
+    options: {
+      both: 'Cerimònia i Celebració',
+      bothDesc: 'Vos acompanyem a les dos (12:30 h i 14:30 h)',
+      ceremony: 'Només Cerimònia',
+      ceremonyDesc: "Ajuntament d'Elx (12:30 h)",
+      celebration: 'Només Celebració',
+      celebrationDesc: 'Las Palmeras Resort (14:30 h)',
+      decline: 'No podrem assistir',
+      declineDesc: 'Vos desitgem el millor en el vostre gran dia',
+    },
+    guestsLabel: 'Nombre de convidats',
+    guestSingular: 'convidat',
+    guestPlural: 'convidats',
+    decreaseGuestsAria: 'Reduir nombre de convidats',
+    increaseGuestsAria: 'Augmentar nombre de convidats',
+    notesLabel: 'Al·lèrgies, intoleràncies o algun comentari (opcional)',
+    notesPlaceholder: 'Ex. 1 menú vegetarià, sense gluten...',
+    submitCta: 'Confirmar per WhatsApp',
+    messagePreviewLabel: 'Vista prèvia del missatge:',
+    whatsappMessage: {
+      greetingWithName: 'Hola Iris i Adela! Soc {name}.',
+      greetingWithoutName: 'Hola Iris i Adela!',
+      both: 'Confirme assistència tant a la cerimònia com a la celebració ({guests}).',
+      ceremony: "Confirme assistència a la cerimònia a l'Ajuntament d'Elx ({guests}).",
+      celebration: 'Confirme assistència a la celebració a Las Palmeras Resort ({guests}).',
+      decline: 'Lamentablement no podrem assistir a la boda. Vos desitgem el millor en el vostre gran dia!',
+      guestsSingular: '1 convidat',
+      guestsPlural: '{count} convidats',
+      notesPrefix: 'Nota:',
+    },
+  },
+
   gift: {
     eyebrow: 'Detall de boda',
     title: 'Regal',
@@ -196,7 +237,7 @@ export const va: Translations = {
         "Cerimònia civil d'Iris i Adela a les 12:30 h a l'Ajuntament d'Elx (Plaça de Baix, 1).",
     },
     celebracion: {
-      title: "Boda d'Iris & Adela — Celebració i Festa",
+      title: "Boda d'Iris & Adela — Celebració i Fiesta",
       location:
         'Las Palmeras Resort, Carrer Gutiérrez de Cárdenas, N-340a, Km 708, 03330 Crevillent, Alacant',
       description:

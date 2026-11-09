@@ -8,6 +8,7 @@ import { StorySection } from './StorySection';
 import { VenuesSection } from './VenuesSection';
 import { TimelineSection } from './TimelineSection';
 import { AccommodationSection } from './AccommodationSection';
+import { RsvpSection } from './RsvpSection';
 import { GiftSection } from './GiftSection';
 import { FooterSection } from './FooterSection';
 import { FloatingControls } from './FloatingControls';
@@ -128,6 +129,7 @@ const WeddingExperienceContent: React.FC = () => {
           <VenuesSection />
           <TimelineSection />
           <AccommodationSection />
+          <RsvpSection />
           <GiftSection />
         </main>
 

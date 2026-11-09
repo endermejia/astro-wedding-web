@@ -17,6 +17,7 @@ const SECTION_IDS: readonly SectionId[] = [
   'lugares',
   'programa',
   'alojamiento',
+  'asistencia',
   'regalo',
 ] as const;
 
@@ -37,6 +38,7 @@ export const FloatingControls: React.FC<FloatingControlsProps> = ({
       { id: 'lugares' as const, href: '#lugares', label: t.nav.items.venues },
       { id: 'programa' as const, href: '#programa', label: t.nav.items.timeline },
       { id: 'alojamiento' as const, href: '#alojamiento', label: t.nav.items.accommodation },
+      { id: 'asistencia' as const, href: '#asistencia', label: t.nav.items.rsvp },
       { id: 'regalo' as const, href: '#regalo', label: t.nav.items.gift },
     ],
     [t]

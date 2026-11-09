@@ -28,8 +28,9 @@ interface StoryAnimatedBorderProps {
 }
 
 /**
- * Ilustración botánica/geek que responde como mecida por una brisa natural.
- * Se mece en rotación pura con amortiguación elástica suave sin saltos ni traslaciones.
+ * Ilustración botánica/geek en dos capas:
+ * - Capa posterior (-bg.png): flores y ramas que se mecen sutilmente con la brisa.
+ * - Capa frontal (-fg.png): objetos principales en primer plano que permanecen estáticos.
  */
 const StoryAnimatedBorder: React.FC<StoryAnimatedBorderProps> = ({
   src,
@@ -46,6 +47,9 @@ const StoryAnimatedBorder: React.FC<StoryAnimatedBorderProps> = ({
 }) => {
   const controls = useAnimationControls();
   const currentGust = useContext(WindContext);
+
+  const bgSrc = src.replace(/\.png$/, '-bg.png');
+  const fgSrc = src.replace(/\.png$/, '-fg.png');
 
   useEffect(() => {
     if (!currentGust) {
@@ -75,13 +79,13 @@ const StoryAnimatedBorder: React.FC<StoryAnimatedBorderProps> = ({
     // Viento hacia la izquierda (rtl) inclina hacia la izquierda (- ángulo)
     const sign = direction === 'ltr' ? 1 : -1;
 
-    // Microvariación natural en la flexibilidad de cada elemento (±12%)
-    const variation = 0.88 + Math.random() * 0.24;
+    // Microvariación natural en la flexibilidad de cada elemento (±10%)
+    const variation = 0.9 + Math.random() * 0.2;
     const targetAngle = baseAngle * sign * mass * variation;
 
-    // Oscilación pendular de retorno suave como una rama flexible
-    const recoilAngle = -targetAngle * 0.32;
-    const settleAngle = targetAngle * 0.08;
+    // Oscilación pendular de retorno muy sutil
+    const recoilAngle = -targetAngle * 0.18;
+    const settleAngle = targetAngle * 0.04;
 
     let timerId: ReturnType<typeof setTimeout>;
 
@@ -111,15 +115,24 @@ const StoryAnimatedBorder: React.FC<StoryAnimatedBorderProps> = ({
       whileInView={whileInView}
       viewport={viewport}
       transition={transition}
-      className={className}
+      className={`relative ${className}`}
     >
+      {/* Capa posterior móvil: flores, espigas y follaje */}
       <motion.img
-        src={src}
-        alt={alt}
+        src={bgSrc}
+        alt=""
+        aria-hidden="true"
         loading="lazy"
         animate={controls}
         style={{ transformOrigin }}
         className="w-full h-auto object-contain select-none pointer-events-none will-change-transform"
+      />
+      {/* Capa frontal estática: elementos cercanos en primer plano */}
+      <img
+        src={fgSrc}
+        alt={alt}
+        loading="lazy"
+        className="absolute inset-0 w-full h-auto object-contain select-none pointer-events-none"
       />
     </motion.div>
   );
@@ -150,11 +163,11 @@ export const StorySection: React.FC = () => {
       // Dirección del viento: 68% de las veces viene de la izquierda, 32% de la derecha
       const dir: 'ltr' | 'rtl' = Math.random() > 0.32 ? 'ltr' : 'rtl';
 
-      // Ángulo de balanceo sutil y elegante (entre 1.2° y 1.8°)
-      const angle = 1.25 + Math.random() * 0.55;
+      // Ángulo de balanceo muy sutil y delicado (entre 0.45° y 0.75°)
+      const angle = 0.45 + Math.random() * 0.3;
 
-      // Duración pausada y mecida (2.4s a 2.9s)
-      const duration = 2.4 + Math.random() * 0.5;
+      // Duración más lenta y orgánica (3.4s a 4.2s)
+      const duration = 3.4 + Math.random() * 0.8;
 
       setCurrentGust({
         gustId: Date.now() + Math.random(),
@@ -163,13 +176,13 @@ export const StorySection: React.FC = () => {
         duration,
       });
 
-      // Ciclo completo: viaje del viento (400ms) + mecida (2700ms) + calma breve entre ráfagas (900ms a 2200ms)
-      const nextGustDelay = 400 + duration * 1000 + (900 + Math.random() * 1300);
+      // Ciclo completo: viaje del viento (450ms) + mecida + calma pausada entre brisas (1800ms a 3600ms)
+      const nextGustDelay = 450 + duration * 1000 + (1800 + Math.random() * 1800);
       timerId = setTimeout(scheduleNextGust, nextGustDelay);
     };
 
-    // Primera brisa suave 400ms después de entrar en visión
-    timerId = setTimeout(scheduleNextGust, 400);
+    // Primera brisa suave 700ms después de entrar en visión
+    timerId = setTimeout(scheduleNextGust, 700);
 
     return () => {
       isMounted = false;
@@ -198,8 +211,8 @@ export const StorySection: React.FC = () => {
                 alt={borderAlts.hatTopLeft}
                 side="left"
                 order={0}
-                transformOrigin="40% 25%"
-                initial={{ opacity: 0, x: -16, y: -6 }}
+                transformOrigin="18% 85%"
+                initial={{ opacity: 0, x: -8, y: -3 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65 }}
@@ -210,9 +223,9 @@ export const StorySection: React.FC = () => {
                 alt={borderAlts.snitchTopRight}
                 side="right"
                 order={0}
-                mass={1.15}
-                transformOrigin="50% 50%"
-                initial={{ opacity: 0, x: 16, y: -6 }}
+                mass={1.05}
+                transformOrigin="72% 90%"
+                initial={{ opacity: 0, x: 8, y: -3 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, delay: 0.08 }}
@@ -231,8 +244,8 @@ export const StorySection: React.FC = () => {
                   alt={borderAlts.hatTopLeft}
                   side="left"
                   order={0}
-                  transformOrigin="40% 25%"
-                  initial={{ opacity: 0, x: -24, y: -10 }}
+                  transformOrigin="18% 85%"
+                  initial={{ opacity: 0, x: -10, y: -4 }}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.75, ease: 'easeOut' }}
@@ -244,8 +257,8 @@ export const StorySection: React.FC = () => {
                   side="left"
                   order={1}
                   mass={0.85}
-                  transformOrigin="50% 95%"
-                  initial={{ opacity: 0, x: -28 }}
+                  transformOrigin="50% 60%"
+                  initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
@@ -256,8 +269,8 @@ export const StorySection: React.FC = () => {
                   alt={borderAlts.ringLowLeft}
                   side="left"
                   order={2}
-                  transformOrigin="40% 65%"
-                  initial={{ opacity: 0, x: -24 }}
+                  transformOrigin="30% 62%"
+                  initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.75, delay: 0.15, ease: 'easeOut' }}
@@ -269,8 +282,8 @@ export const StorySection: React.FC = () => {
                   side="left"
                   order={3}
                   mass={0.8}
-                  transformOrigin="40% 95%"
-                  initial={{ opacity: 0, x: -24, y: 10 }}
+                  transformOrigin="52% 62%"
+                  initial={{ opacity: 0, x: -10, y: 4 }}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
@@ -338,8 +351,8 @@ export const StorySection: React.FC = () => {
                       side="left"
                       order={1}
                       mass={0.85}
-                      transformOrigin="50% 95%"
-                      initial={{ opacity: 0, x: -16 }}
+                      transformOrigin="50% 60%"
+                      initial={{ opacity: 0, x: -8 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
@@ -350,8 +363,8 @@ export const StorySection: React.FC = () => {
                       alt={borderAlts.donutMidRight}
                       side="right"
                       order={1}
-                      transformOrigin="50% 50%"
-                      initial={{ opacity: 0, x: 16 }}
+                      transformOrigin="47% 48%"
+                      initial={{ opacity: 0, x: 8 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.7, delay: 0.08 }}
@@ -391,8 +404,8 @@ export const StorySection: React.FC = () => {
                       alt={borderAlts.ringLowLeft}
                       side="left"
                       order={2}
-                      transformOrigin="40% 65%"
-                      initial={{ opacity: 0, x: -16 }}
+                      transformOrigin="30% 62%"
+                      initial={{ opacity: 0, x: -8 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.7 }}
@@ -403,8 +416,8 @@ export const StorySection: React.FC = () => {
                       alt={borderAlts.deathstarLowRight}
                       side="right"
                       order={2}
-                      transformOrigin="50% 50%"
-                      initial={{ opacity: 0, x: 16 }}
+                      transformOrigin="62% 92%"
+                      initial={{ opacity: 0, x: 8 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.7, delay: 0.08 }}
@@ -451,9 +464,9 @@ export const StorySection: React.FC = () => {
                   alt={borderAlts.snitchTopRight}
                   side="right"
                   order={0}
-                  mass={1.15}
-                  transformOrigin="50% 50%"
-                  initial={{ opacity: 0, x: 24, y: -10 }}
+                  mass={1.05}
+                  transformOrigin="72% 90%"
+                  initial={{ opacity: 0, x: 10, y: -4 }}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.75, delay: 0.05, ease: 'easeOut' }}
@@ -464,8 +477,8 @@ export const StorySection: React.FC = () => {
                   alt={borderAlts.donutMidRight}
                   side="right"
                   order={1}
-                  transformOrigin="50% 50%"
-                  initial={{ opacity: 0, x: 28 }}
+                  transformOrigin="47% 48%"
+                  initial={{ opacity: 0, x: 12 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.8, delay: 0.12, ease: 'easeOut' }}
@@ -476,8 +489,8 @@ export const StorySection: React.FC = () => {
                   alt={borderAlts.deathstarLowRight}
                   side="right"
                   order={2}
-                  transformOrigin="50% 50%"
-                  initial={{ opacity: 0, x: 24 }}
+                  transformOrigin="62% 92%"
+                  initial={{ opacity: 0, x: 10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.75, delay: 0.18, ease: 'easeOut' }}
@@ -489,8 +502,8 @@ export const StorySection: React.FC = () => {
                   side="right"
                   order={3}
                   mass={0.8}
-                  transformOrigin="50% 95%"
-                  initial={{ opacity: 0, x: 24, y: 10 }}
+                  transformOrigin="50% 65%"
+                  initial={{ opacity: 0, x: 10, y: 4 }}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
                   transition={{ duration: 0.8, delay: 0.22, ease: 'easeOut' }}
@@ -510,8 +523,8 @@ export const StorySection: React.FC = () => {
                 side="left"
                 order={3}
                 mass={0.8}
-                transformOrigin="40% 95%"
-                initial={{ opacity: 0, x: -16, y: 6 }}
+                transformOrigin="52% 62%"
+                initial={{ opacity: 0, x: -8, y: 3 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65 }}
@@ -523,8 +536,8 @@ export const StorySection: React.FC = () => {
                 side="right"
                 order={3}
                 mass={0.8}
-                transformOrigin="50% 95%"
-                initial={{ opacity: 0, x: 16, y: 6 }}
+                transformOrigin="50% 65%"
+                initial={{ opacity: 0, x: 8, y: 3 }}
                 whileInView={{ opacity: 1, x: 0, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.65, delay: 0.08 }}
